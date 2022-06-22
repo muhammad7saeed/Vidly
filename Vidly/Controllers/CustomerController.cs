@@ -14,7 +14,7 @@ namespace Vidly.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-
+        int x;
 
 
         // GET: Customer
