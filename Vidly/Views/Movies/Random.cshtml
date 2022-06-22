@@ -1,0 +1,42 @@
+﻿@using Vidly.Models
+@model Vidly.ViewModels.MovieCustomerModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@(((Movie)ViewData["Movie"]).Name)</h2>
+
+<h2>@ViewBag.Mymovie.Name</h2>
+
+
+@if (Model.Customers.Count <= 2)
+{
+    <text>we need more customer</text>
+}
+else
+{
+    foreach (var x in Model.Customers)
+    {
+        <h2>@x.Name</h2>
+
+    }
+
+
+    <h2>@Model.Customers[0].Name</h2>
+    <h2>@Model.Customers[1].Name</h2>
+
+    <h2>@Model.Movie.Name</h2>
+}
+
+
+
+
+
+
+
+
+
+
+
+

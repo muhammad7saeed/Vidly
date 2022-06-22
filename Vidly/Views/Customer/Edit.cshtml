@@ -1,0 +1,54 @@
+﻿@model Vidly.ViewModels.CustomerMemberShipViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Customer</h2>
+@using (Html.BeginForm()){
+
+    @Html.HiddenFor(c=>c.Customer.Id)
+
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.Customer.Name )
+        @Html.TextBoxFor(x=>x.Customer.Name, new{ @class = " form-control"})
+        @Html.ValidationMessageFor(c=>c.Customer.Name)
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.Customer.MemberShipTypeID )
+        @Html.DropDownListFor(x=>x.Customer.MemberShipTypeID,new SelectList(Model.MemberShipTypes,"Id","Name"),"Select MemberShip" ,new{ @class = " form-control"})
+        @Html.ValidationMessageFor(c=>c.Customer.MemberShipTypeID)
+
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Customer.BirthDate)
+        @Html.TextBoxFor(x => x.Customer.BirthDate, new { @class = " form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.BirthDate)
+
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.CheckBoxFor(x=>x.Customer.IsMale)
+        @Html.LabelFor(x => x.Customer.IsMale )
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,65 @@
+﻿@model Vidly.ViewModels.CustomerMemberShipViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.BirthDate)
+        </dd>
+
+        <dt>
+
+            @Html.DisplayNameFor(model => model.Customer.IsMale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.IsMale)
+        </dd>
+
+    <!-- if (Model.Customer.BirthDate != null) 
+    {
+    <dt>
+        Html.DisplayNameFor(model => model.Customer.BirthDate)
+    </dt>
+
+    <dd>
+        Html.DisplayFor(model => model.Customer.BirthDate)
+    </dd>        
+    }
+        -->
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.MemberShipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.MemberShipType.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Customer.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
