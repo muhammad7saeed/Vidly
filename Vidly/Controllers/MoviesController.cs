@@ -13,15 +13,16 @@ namespace Vidly.Controllers
     {
         private MyDBContext db = new MyDBContext();
 
-        public ActionResult index()
+        public ViewResult index()
         {
             //var movie = db.Movies.Include(c => c.Genre).ToList();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
 
-
-
-            return View ();
+            return View("ReadOnlyList");
 
         }
+
         
         public IEnumerable<Movie> getMovies() //h3ml function tgebly list of customer w b3d kda hwdeha ll view 3shan a3rdha...... IEnumerable Generic data type//
         {
@@ -31,7 +32,9 @@ namespace Vidly.Controllers
 
         }
     
+
     [HttpGet]
+        [Authorize(Roles = RoleName.CanManageMovies)]
     public ActionResult AddMovie()
     {
         var Genres = db.Genres.ToList();
@@ -60,8 +63,9 @@ namespace Vidly.Controllers
         return RedirectToAction("index");
     }
 
-    [HttpGet]
-    public ActionResult EditMovie(int id )
+        [HttpGet]
+        [Authorize(Roles = RoleName.CanManageMovies)]
+        public ActionResult EditMovie(int id )
     {
 
         var Genres = db.Genres.ToList();
@@ -101,7 +105,7 @@ namespace Vidly.Controllers
     }
 
 
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult MovieDetails(int id )
         {
             var Movie = db.Movies.SingleOrDefault(c => c.Id == id);
@@ -114,7 +118,7 @@ namespace Vidly.Controllers
             return View(Movie);
         }
         [HttpGet]
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Delete(int id) //bst2bl el form
         {
             var Movie = db.Movies.Single(c => c.Id == id);
