@@ -32,8 +32,6 @@ namespace Vidly.Models
         public int?  MemberShipTypeID { get; set; }
 
 
-
-
         [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
 

@@ -9,6 +9,8 @@ namespace Vidly.Models
 {
     public class Movie
     {
+
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "You have to Entered Your Name")]
@@ -31,6 +33,8 @@ namespace Vidly.Models
 
         [Required]
         public int GenreId { get; set; }
+
+        public int NumberAvailable { get; set; }
 
 
     }

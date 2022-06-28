@@ -34,6 +34,9 @@ namespace Vidly.Models
         public DbSet<MemberShipType> MemberShipTypes { get; set; }// My domain models
         public DbSet<Genre> Genres { get; set; }// My domain models
 
+        public DbSet<Rental> Rentals { get; set; }// My domain models
+
+
         public MyDBContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

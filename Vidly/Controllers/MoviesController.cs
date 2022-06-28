@@ -34,7 +34,6 @@ namespace Vidly.Controllers
     
 
     [HttpGet]
-        [Authorize(Roles = RoleName.CanManageMovies)]
     public ActionResult AddMovie()
     {
         var Genres = db.Genres.ToList();
